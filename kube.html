@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kube</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-slide-content:after {
+          content: "";
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          height: 40px;
+          width: 120px;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-image: url('images/kolabsys_logo.png');
+          <!-- background-color: red; -->
+      }
+      img {
+        max-width: 100%;
+      }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      .remark-slide-content h1 { font-size: 2.5em; }
+      .remark-slide-content h2 { font-size: 1.2em; }
+      .remark-slide-content h3 { font-size: 1.5em; }
+      .remark-slide-content { font-size: 1.5em; }
+      .red { color: #fa0000; }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+      .left-column h2:last-of-type, .left-column h3:last-child {
+        color: #000;
+      }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+
+    /* For printing */
+    <!-- @page { -->
+    <!--   size: 1024px 768px; -->
+    <!--   margin: 0; -->
+    <!-- } -->
+    <!-- @media print { -->
+    <!--   .remark-slide-scaler { -->
+    <!--     width: 100% !important; -->
+    <!--     height: 100% !important; -->
+    <!--     transform: scale(1) !important; -->
+    <!--     top: 0 !important; -->
+    <!--     left: 0 !important; -->
+    <!--   } -->
+    <!-- } -->
+
+      <!-- .img-with-text { -->
+      <!--     text-align: justify; -->
+      <!--     width: 100; -->
+      <!-- } -->
+      <!-- .img-with-text img { -->
+      <!--     display: block; -->
+      <!--     margin: 0 auto; -->
+      <!-- } -->
+
+
+      <!-- div.item { -->
+      <!--     vertical-align: top; -->
+      <!--     display: inline-block; -->
+      <!--     text-align: center; -->
+      <!--     width: 120px; -->
+      <!-- } -->
+      <!-- img { -->
+      <!--     width: 100px; -->
+      <!--     height: 100px; -->
+      <!--     background-color: grey; -->
+      <!-- } -->
+      <!-- .caption { -->
+      <!--     display: block; -->
+      <!-- } -->
+
+      <!-- .remark-container { -->
+      <!--   background-color: red; -->
+      <!-- } -->
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+<!-- layout: true -->
+<!-- <div class="my-header"><img src="images/kolabsys_logo.png" style="height: 30px;"/></div> -->
+<!-- <div class="my-footer"><span>&copy; Kolab Systems.</span></div> -->
+
+---
+
+class: center, middle
+<!-- <figure> -->
+<!--   <img src="images/kube_logo.svg" width="250" height="444" alt="my img"/> -->
+<!--   <figcaption> Your text </figcaption> -->
+<!-- </figure> -->
+<!-- <div class="img-with-text"> -->
+<!--     <img src="images/kube_logo.svg" alt="sometext" /> -->
+<!--     <p>Some text</p> -->
+<!-- </div> -->
+
+<!-- <div class="item"> -->
+<!--     <img src="images/kube_logo.svg"/> -->
+<!--     <span class="caption">Text below the image</span> -->
+<!-- </div> -->
+
+![kube_logo](images/kube_logo.svg "A communication and collaboration client")
+
+A modern communication and collaboration client.
+
+<!-- .right[![Right-aligned image](https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg)] -->
+
+???
+
+KDE Community
+Kolab Systems
+5 years
+Responsible for Desktop client
+Kube latest effort
+
+---
+
+# What is Kube?
+
+* A modern Communication and Collaboration client with offline capability
+* Everything that has to do with communication and collaboration:
+    * Mail
+    * Calendaring
+    * Notes
+    * IM
+    * Todo’s
+* Built on top of a high performance core called Sink using QtQuick
+* Developed within the KDE community
+
+---
+
+# Goals
+
+* Pretty AND useful
+* Maintainable codebase, can move fast without sacrificing quality
+* Deployable, cross-platform, including mobile
+* High performance, low resource consumption
+* Effortless security
+
+???
+
+KDE VDG Visual Design Group
+Michael, Sandro, Jens, Thomas
+
+---
+
+# Current State
+
+* Building the Framework together with an MVP
+* Currently that’s a simple Email Client
+
+???
+* To dissapoint right away.
+* Encrypted mail
+
+--
+
+![kube_screenshot](images/kube_screenshot.jpg)
+
+???
+Most demanding usecase.
+
+---
+
+class: middle, center
+
+# So how will we get there?
+
+???
+
+How will we get where we eventually want to go?
+Run over some key areas that we focus on
+
+* Go over some of the issues and explain how we tackle them:
+    * Framework with composable components (for innovation)
+    * Usability in the context of Security
+    * Maintainability and Deployability (sinksh/config separation/dependencies)
+
+* User Story
+    * Usability
+    * Workflows
+    * Network application (no local data), but offline storage.
+* Development & Maintenance
+    * Composable components
+    * Complexity
+    * Performance
+* Deployment
+    * Scriptability/Configuration
+
+---
+
+layout: false
+.left-column[
+  ## User
+]
+.right-column[
+
+# Workflow
+
+* Traditionally we had different applications for different protocols
+* Support the user in what he actually has to do:
+    * Organize a Meeting
+    * Plan a Project
+    * Catch up with communication
+]
+???
+communication/calendaring: scheduling
+calendaring: event
+taskmanagement: agenda, actionable results
+notes: minutes
+
+---
+
+layout: false
+.left-column[
+  ## User
+]
+.right-column[
+# Usability
+* Don’t do everything
+* Do what we do right
+* Effortless security: TOFU, Integrated key management, Simple visualisation.
+]
+
+---
+
+layout: false
+.left-column[
+  ## User
+]
+.right-column[
+# Networked application
+* ...with offline capability
+* Almost no local data except for configuration.red[*].
+* Open protocols (IMAP/DAV*/...)
+
+.footnote[.red[*] unless you use a local backend]
+]
+
+???
+
+Important for the multi-device workflow.
+
+Should this go somewhere else?
+
+---
+
+layout: false
+.left-column[
+  ## User
+  ## Development
+]
+.right-column[
+# Composable components
+* Building blocks to build new views
+* Self contained QML components using KPackage
+* Can be used outside of Kube as well
+]
+
+???
+Clean separation of UI and rest through QML
+
+---
+
+layout: false
+.left-column[
+  ## User
+  ## Development
+]
+.right-column[
+# Complexity
+![complexity](images/complexity.png)
+]
+???
+* Ruben goldberg machine.
+* Encapsulate mutable state.
+
+---
+
+layout: false
+.left-column[
+  ## User
+  ## Development
+]
+.right-column[
+![architecture](images/architecture.png)
+]
+
+???
+* libsink: Uniform domain specific interface
+
+---
+
+class: center, middle
+
+![architecture_resource](images/architecture_resource.png)
+<!-- .right[![Right-aligned image](https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg)] -->
+
+???
+* Uniform flow of information.
+* Reactive loop.
+
+---
+
+layout: false
+.left-column[
+  ## User
+  ## Development
+]
+.right-column[
+# Performance
+* Don't do unnecessary work (and only do it once).
+* Queriable data.
+* High performance key-value store.red[*].
+* In process access to data.
+
+.footnote[.red[*] lmdb]
+]
+???
+
+
+---
+
+layout: false
+.left-column[
+  ## User
+  ## Development
+  ## Deployment
+]
+.right-column[
+# Deployment & Maintenance
+* Scriptability with sinksh
+    * Setup/Modify/Remove accounts with scripts
+    * Synchronize accounts
+    * Query local data
+    * sinksh scripts
+    * REPL
+* Separation of configuration and data
+* Configurable logging
+]
+
+---
+
+# Now is the time to join!
+
+* Sink is an interesting modern C++ codebase.
+* If you like QML and know some C++ you can work on the UI.
+* We need help with cross-platform builds (Mac, Windows, Android, ...)
+
+* Weekly online meetings that are open to anyone.
+
+* For more info: kube.kde.org
+
+---
+# Early tech preview
+
+* Fedora 25:
+```
+dnf copr enable kanarip/kube
+dnf install kube libotp
+```
+* Flatpak
+* From source
+---
+class: middle, center
+
+# Questions?
+
+    </textarea>
+    <script src="out/remark.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
